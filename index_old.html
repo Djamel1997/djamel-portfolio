@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Djamel-Eddine Ladjine | Network & Telecom Engineer</title>
+
+  <meta name="description" content="Djamel-Eddine Ladjine — Junior Network Engineer / Network Analyst / NOC Analyst (5G, O-RAN, FTTH, Network Monitoring, Kubernetes, Cloudflare Zero Trust)." />
+  <meta name="author" content="Djamel-Eddine Ladjine" />
+  <meta property="og:title" content="Djamel-Eddine Ladjine | Network & Telecom Engineer" />
+  <meta property="og:description" content="Telecommunications Engineer (ÉTS Montréal). FTTH, OTDR, 5G/O-RAN, Network Monitoring. Kubernetes + Cloudflare Zero Trust Tunnel projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://djamel-ladjine.me" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0f172a',
+            accent: '#06b6d4',
+            secondary: '#6366f1',
+          },
+          animation: {
+            'gradient': 'gradient 8s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background: #0f172a; color: #e2e8f0; overflow-x: hidden; }
+    .gradient-text {
+      background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient 8s linear infinite;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #06b6d4;
+      box-shadow: 0 0 20px #06b6d4;
+    }
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2); }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(90deg, #06b6d4, #6366f1);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .blob { position: absolute; filter: blur(80px); opacity: 0.4; animation: float 10s ease-in-out infinite; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+    <div class="glass-card border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0 flex items-center">
+            <span class="font-display font-bold text-2xl gradient-text">DEL.</span>
+          </div>
+
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a href="#home" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">Home</a>
+              <a href="#about" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">About</a>
+              <a href="#experience" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">Experience</a>
+              <a href="#projects" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">Projects</a>
+              <a href="#skills" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">Skills</a>
+              <a href="#contact" class="nav-link text-sm font-medium hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+          </div>
+
+          <div class="md:hidden">
+            <button onclick="toggleMenu()" class="text-gray-300 hover:text-white">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-white/10">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">Home</a>
+        <a href="#about" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">About</a>
+        <a href="#experience" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">Experience</a>
+        <a href="#projects" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">Projects</a>
+        <a href="#skills" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">Skills</a>
+        <a href="#contact" class="block px-3 py-2 text-base font-medium hover:text-cyan-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center hero-grid overflow-hidden pt-16">
+    <div class="blob bg-cyan-500 w-96 h-96 rounded-full top-20 -left-20"></div>
+    <div class="blob bg-purple-500 w-80 h-80 rounded-full bottom-20 -right-20"></div>
+    <div class="blob bg-indigo-500 w-64 h-64 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal active">
+        <p class="text-cyan-400 font-medium mb-4 tracking-widest uppercase text-sm">
+          Telecommunications Engineer · Network Operations · NOC
+        </p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+          Djamel-Eddine<br>
+          <span class="gradient-text">Ladjine</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 font-light">
+          Junior Network Engineer focused on network monitoring, FTTH access networks, and modern 5G/O-RAN architectures.
+          I also build cloud-native infrastructure (Kubernetes + Cloudflare Zero Trust).
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#contact"
+             class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:scale-105">
+            Get In Touch
+          </a>
+          <a href="https://cv.djamel-ladjine.me" target="_blank" rel="noreferrer"
+             class="px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/5 transition-all">
+            View CV
+          </a>
+        </div>
+
+        <div class="mt-6 flex justify-center gap-4 text-sm text-gray-400">
+          <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Montréal, QC</span>
+          <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">FTTH · OTDR</span>
+          <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">5G · O-RAN</span>
+          <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Kubernetes</span>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-cyan-400 text-2xl"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
+            <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                  <div class="h-32 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-network-wired text-4xl text-cyan-400"></i>
+                  </div>
+                  <div class="h-24 bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-server text-3xl text-purple-400"></i>
+                  </div>
+                </div>
+                <div class="space-y-4 mt-8">
+                  <div class="h-24 bg-gradient-to-br from-indigo-500/20 to-blue-600/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-satellite-dish text-3xl text-indigo-400"></i>
+                  </div>
+                  <div class="h-32 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-microchip text-4xl text-cyan-400"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 text-sm text-gray-400">
+                <p class="leading-relaxed">
+                  I like structured operations: monitoring, incident response, troubleshooting, documentation, and continuous improvement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-display text-4xl font-bold mb-6">About <span class="gradient-text">Me</span></h2>
+          <div class="space-y-4 text-gray-300 leading-relaxed">
+            <p>
+              Telecommunications Engineer with a Master’s degree in Telecommunications Network Engineering from ÉTS Montréal.
+              I have hands-on experience in FTTH access networks (installation, validation, OTDR troubleshooting) and strong interest
+              in network operations and NOC environments.
+            </p>
+            <p>
+              I also build cloud-native lab projects using Kubernetes and Cloudflare Zero Trust Tunnel—useful skills for modern
+              telecom infrastructure teams.
+            </p>
+
+            <div class="grid grid-cols-2 gap-6 mt-8">
+              <div class="border-l-2 border-cyan-500 pl-4">
+                <h4 class="font-bold text-white text-lg">Location</h4>
+                <p class="text-gray-400">Montréal, QC</p>
+              </div>
+              <div class="border-l-2 border-purple-500 pl-4">
+                <h4 class="font-bold text-white text-lg">Education</h4>
+                <p class="text-gray-400">M.Eng. (ÉTS) · Telecom Networks</p>
+              </div>
+              <div class="border-l-2 border-indigo-500 pl-4">
+                <h4 class="font-bold text-white text-lg">Focus</h4>
+                <p class="text-gray-400">Monitoring · Troubleshooting · KPIs</p>
+              </div>
+              <div class="border-l-2 border-pink-500 pl-4">
+                <h4 class="font-bold text-white text-lg">Languages</h4>
+                <p class="text-gray-400">English · French · Arabic</p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="https://cv.djamel-ladjine.me" target="_blank" rel="noreferrer"
+                 class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                <i class="fa-solid fa-file-lines mr-2 text-cyan-400"></i> CV (HTML)
+              </a>
+              <a href="https://www.linkedin.com/in/djamel-eddine-ladjine" target="_blank" rel="noreferrer"
+                 class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                <i class="fa-brands fa-linkedin mr-2 text-purple-400"></i> LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-24 relative bg-slate-900/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl font-bold mb-4">Professional <span class="gradient-text">Journey</span></h2>
+        <p class="text-gray-400">Real experience and education (no placeholders)</p>
+      </div>
+
+      <div class="relative border-l-2 border-white/10 ml-4 md:ml-0 space-y-12">
+
+        <!-- Bridor -->
+        <div class="relative pl-8 md:pl-12 reveal timeline-item">
+          <div class="glass-card rounded-xl p-6 hover-lift">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Operations Associate – Production (SAP)</h3>
+                <p class="text-cyan-400 font-medium">Bridor Inc · Boucherville, QC</p>
+              </div>
+              <span class="text-gray-500 text-sm mt-2 md:mt-0">Jul 2023 – Present</span>
+            </div>
+            <ul class="text-gray-400 space-y-2 list-disc pl-5">
+              <li>Supported structured daily operations in a high-volume environment.</li>
+              <li>Used SAP for inventory / material movement tracking and accurate data entry.</li>
+              <li>Strengthened process discipline, documentation habits, and operational rigor.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">Process</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">SAP</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">Ops discipline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Algeria Telecom FTTH -->
+        <div class="relative pl-8 md:pl-12 reveal timeline-item">
+          <div class="glass-card rounded-xl p-6 hover-lift">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Junior Fiber Access Network Technician (FTTH)</h3>
+                <p class="text-purple-400 font-medium">Algérie Télécom · Sidi Bel Abbès</p>
+              </div>
+              <span class="text-gray-500 text-sm mt-2 md:mt-0">Nov 2021 – Jun 2022</span>
+            </div>
+            <ul class="text-gray-400 space-y-2 list-disc pl-5">
+              <li>Deployed and maintained FTTH access network infrastructure for residential customers.</li>
+              <li>Performed fiber installation, connection and link validation.</li>
+              <li>Used OTDR measurements to identify signal loss and support troubleshooting.</li>
+              <li>Installed access equipment (distribution boxes, optical terminal outlets/PTO).</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">FTTH</span>
+              <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">OTDR</span>
+              <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">Fiber troubleshooting</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ETS -->
+        <div class="relative pl-8 md:pl-12 reveal timeline-item">
+          <div class="glass-card rounded-xl p-6 hover-lift">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Master’s — Telecommunications Network Engineering</h3>
+                <p class="text-indigo-400 font-medium">ÉTS Montréal</p>
+              </div>
+              <span class="text-gray-500 text-sm mt-2 md:mt-0">Sep 2022 – Feb 2025</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Focus on modern telecom networks, performance analysis, and architecture concepts (including 5G and O-RAN exposure).
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-sm border border-indigo-500/20">5G</span>
+              <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-sm border border-indigo-500/20">O-RAN</span>
+              <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-sm border border-indigo-500/20">Performance KPIs</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="text-gray-400">Practical work that demonstrates network + cloud-native skills</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-card rounded-xl p-6 hover-lift reveal">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-cloud text-cyan-400 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Kubernetes Portfolio Platform</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Hosted this portfolio and CV on Kubernetes and exposed it securely to the internet using Cloudflare Zero Trust Tunnel
+            (no inbound ports opened).
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">Kubernetes</span>
+            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">Cloudflare Tunnel</span>
+            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">Zero Trust</span>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-6 hover-lift reveal" style="transition-delay: 120ms">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-line text-purple-400 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Network Performance & KPI Monitoring</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Experience with performance analysis and telecom KPIs (including radio metrics such as RSRP, RSRQ, PRB) and
+            a strong interest in NOC monitoring and troubleshooting workflows.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">KPIs</span>
+            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">Monitoring</span>
+            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm border border-purple-500/20">Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center reveal">
+        <a href="https://cv.djamel-ladjine.me" target="_blank" rel="noreferrer"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          <i class="fa-solid fa-arrow-up-right-from-square text-cyan-400"></i>
+          View the full CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl font-bold mb-4">Technical <span class="gradient-text">Expertise</span></h2>
+        <p class="text-gray-400">Focused, relevant skill set for network & telecom operations</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="glass-card rounded-xl p-6 hover-lift reveal group">
+          <div class="w-14 h-14 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+            <i class="fas fa-network-wired text-2xl text-cyan-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Network Operations</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-2 text-sm"></i> Monitoring & Performance Analysis</li>
+            <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-2 text-sm"></i> Troubleshooting & Incident Handling</li>
+            <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-2 text-sm"></i> KPIs & Service Quality</li>
+            <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-2 text-sm"></i> Documentation & Procedures</li>
+          </ul>
+        </div>
+
+        <div class="glass-card rounded-xl p-6 hover-lift reveal group" style="transition-delay: 100ms">
+          <div class="w-14 h-14 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+            <i class="fas fa-broadcast-tower text-2xl text-purple-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Telecom</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center"><i class="fas fa-check text-purple-400 mr-2 text-sm"></i> FTTH (installation, validation)</li>
+            <li class="flex items-center"><i class="fas fa-check text-purple-400 mr-2 text-sm"></i> OTDR testing & troubleshooting</li>
+            <li class="flex items-center"><i class="fas fa-check text-purple-400 mr-2 text-sm"></i> 5G fundamentals & O-RAN exposure</li>
+            <li class="flex items-center"><i class="fas fa-check text-purple-400 mr-2 text-sm"></i> Radio KPIs (RSRP, RSRQ, PRB)</li>
+          </ul>
+        </div>
+
+        <div class="glass-card rounded-xl p-6 hover-lift reveal group" style="transition-delay: 200ms">
+          <div class="w-14 h-14 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 transition-colors">
+            <i class="fas fa-cloud text-2xl text-indigo-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Cloud & Tools</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center"><i class="fas fa-check text-indigo-400 mr-2 text-sm"></i> Kubernetes, Docker</li>
+            <li class="flex items-center"><i class="fas fa-check text-indigo-400 mr-2 text-sm"></i> Cloudflare Zero Trust Tunnel</li>
+            <li class="flex items-center"><i class="fas fa-check text-indigo-400 mr-2 text-sm"></i> Linux basics</li>
+            <li class="flex items-center"><i class="fas fa-check text-indigo-400 mr-2 text-sm"></i> Cisco (CCNA in progress)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Certifications (accurate) -->
+      <div class="mt-16 reveal">
+        <h3 class="text-2xl font-bold mb-8 text-center">Certifications</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="glass-card rounded-lg p-4 text-center hover-lift">
+            <i class="fas fa-certificate text-3xl text-cyan-400 mb-2"></i>
+            <p class="font-semibold text-sm">CCNA (In Progress)</p>
+          </div>
+          <div class="glass-card rounded-lg p-4 text-center hover-lift">
+            <i class="fas fa-certificate text-3xl text-purple-400 mb-2"></i>
+            <p class="font-semibold text-sm">AWS Cloud Practitioner (In Progress)</p>
+          </div>
+          <div class="glass-card rounded-lg p-4 text-center hover-lift">
+            <i class="fas fa-tools text-3xl text-indigo-400 mb-2"></i>
+            <p class="font-semibold text-sm">Computer System Installation & Maintenance</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 relative bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl font-bold mb-4">Let's <span class="gradient-text">Connect</span></h2>
+        <p class="text-gray-400">Open to Junior Network / NOC opportunities</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-8 md:p-12 reveal">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-cyan-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">Email</p>
+                  <a href="mailto:ladjine.djamel.eddine@gmail.com" class="text-white hover:text-cyan-400 transition-colors">
+                    ladjine.djamel.eddine@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fab fa-linkedin text-purple-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/djamel-eddine-ladjine" target="_blank" rel="noreferrer"
+                     class="text-white hover:text-purple-400 transition-colors">
+                    linkedin.com/in/djamel-eddine-ladjine
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400 mb-1">Location</p>
+                  <p class="text-white">Montréal, Québec, Canada</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <p class="text-sm text-gray-400 mb-4">Quick links</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="https://cv.djamel-ladjine.me" target="_blank" rel="noreferrer"
+                   class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                  <i class="fa-solid fa-file-lines mr-2"></i> CV
+                </a>
+                <a href="mailto:ladjine.djamel.eddine@gmail.com?subject=Opportunity%20-%20Network%20/%20NOC"
+                   class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                  <i class="fa-solid fa-paper-plane mr-2"></i> Email me
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mailto form -->
+          <div>
+            <form class="space-y-4" id="contact-form">
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                <input id="name" type="text"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder-gray-500"
+                  placeholder="Your name" required>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                <input id="email" type="email"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder-gray-500"
+                  placeholder="your@email.com" required>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                <textarea id="message" rows="4"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-white placeholder-gray-500 resize-none"
+                  placeholder="Your message..." required></textarea>
+              </div>
+
+              <button type="submit"
+                class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:scale-[1.02]">
+                Send Email
+              </button>
+
+              <p class="text-xs text-gray-500">
+                This button opens your email client (no data is stored on the website).
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <span class="font-display font-bold text-xl gradient-text">DEL.</span>
+        <span class="text-gray-500 text-sm ml-2">© 2026 Djamel-Eddine Ladjine. All rights reserved.</span>
+      </div>
+      <div class="flex space-x-6 text-sm text-gray-400">
+        <a href="https://cv.djamel-ladjine.me" class="hover:text-white transition-colors">CV</a>
+        <a href="mailto:ladjine.djamel.eddine@gmail.com" class="hover:text-white transition-colors">Email</a>
+        <a href="https://www.linkedin.com/in/djamel-eddine-ladjine" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Scroll reveal animation
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) navbar.classList.add('shadow-lg');
+      else navbar.classList.remove('shadow-lg');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Contact form -> mailto
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const msg = encodeURIComponent(document.getElementById('message').value.trim());
+
+      const subject = encodeURIComponent('Opportunity - Network / NOC');
+      const body =
+        `Name: ${decodeURIComponent(name)}%0D%0A` +
+        `Email: ${decodeURIComponent(email)}%0D%0A%0D%0A` +
+        `${decodeURIComponent(msg)}`;
+
+      window.location.href = `mailto:ladjine.djamel.eddine@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+
+</body>
+</html>
