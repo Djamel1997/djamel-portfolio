@@ -23,13 +23,3 @@ jobs:
         run: |
           docker build -t djamel1997/djamel-portfolio:latest .
           docker push djamel1997/djamel-portfolio:latest
-
-      - name: Setup kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
-
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl set image deployment/portfolio nginx=djamel1997/djamel-portfolio:latest -n web
-
